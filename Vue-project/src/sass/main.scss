@@ -1,0 +1,275 @@
+/*
+*部分重置
+*/
+html {
+  font-size: calc(3vw);
+  color: #222;
+}
+
+dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: #b3d4fc;
+  text-shadow: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+em, b {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+input[type='submit'], input[type='button'], input[type='reset'], button {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+/*
+*
+*单独样式
+*
+**/
+@mixin boxShadow($x:0,$y:0,$blur:0,$spread:0,$color:#000) {
+  box-shadow: $x $y $blur $spread $color;
+}
+
+%flexBox {
+  display: -webkit-flex;
+  display: flex;
+}
+
+%boxSize {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+%flexCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin scale($scale:1) {
+  -webkit-transform: scale($scale);
+  transform: scale($scale);
+}
+.peopleCar-tel .border-danger{
+  border:1px solid #fc9153;
+}
+.appContent-header {
+  width: 100%;
+  background-color: #fff;
+  @include boxShadow(0, 2px, 3px, 0, rgba(0, 0, 0, .22));
+  @extend %flexBox;
+  justify-content: left;
+  align-items: center;
+  @at-root .appHeader-my {
+    @extend %flexBox;
+    @extend %flexCenter;
+    width: 3.5rem;
+    padding-left: 0.5rem;
+    color: #666;
+    h6 {
+      font-size: 1.7rem;
+      color: #666;
+      line-height: 4.8rem;
+    }
+  }
+  @at-root .appHeader-tap {
+    flex: 1;
+    @extend %flexBox;
+    @extend %flexCenter;
+    li {
+      line-height: 4.8rem;
+      width: 20%;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #666;
+      padding: 0 4px;
+      &.current {
+        color: #fc9153;
+        @include scale(1.1);
+        -webkit-transition: all 0.2s ease 0s;
+        transition: all 0.2s ease 0s;
+      }
+    }
+  }
+}
+
+%fixedBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: calc(100vh);
+}
+
+.appContent-list {
+  @at-root .appListBck {
+    @extend %fixedBox;
+    z-index: 110;
+    width: 100%;
+    background-color: rgba(37, 38, 45, .4);
+  }
+  @at-root .appList-box {
+    @extend %fixedBox;
+    z-index: 111;
+    width: 75%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 4px 0 18px 6px rgba(0, 0, 0, .12);
+    .appListTop {
+      @extend %flexBox;
+      @extend %flexCenter;
+      height: 8rem;
+      color: #666;
+      em {
+        font-size: 2rem;
+        padding-right: 4px;
+      }
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
+    .appList-center {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding: 0 16px;
+      color: #666;
+      dd {
+        height: 4.4rem;
+        line-height: 4.4rem;
+      }
+      em {
+        font-size: 2rem;
+        padding-right: 6px;
+      }
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
+    .appList-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      display: -webkit-flex;
+      height: 6rem;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: #666;
+      em {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.appList-enter {
+  transform: translateX(-75%) translateZ(0);
+}
+
+.appList-leave-to {
+  transform: translateX(-120%) translateZ(0);
+}
+
+.appList-enter-active, .appList-leave-to {
+  transition: transform 0.3s ease-in-out 0s;
+}
+
+.appListBck-enter, .appListBck-leave-active {
+  opacity: 0;
+
+}
+
+.appListBck-enter-to {
+  opacity: 1;
+
+}
+
+.appListBck-enter-active, .appListBck-leave-active {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.appContent-map {
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  .appContent-mapHead{
+    position:relative;
+    z-index:100;
+    width:100%;
+    height:5rem;
+    background-color:#fff;
+    display:flex;
+    display:-webkit-flex;
+    justify-content:flex-start;
+    -webkit-box-shadow:0 6px 5px 0 rgba(0,0,0,.12);
+    box-shadow:0 6px 5px 0 rgba(0,0,0,.12);
+    input{
+      height:100%;
+      border:none;
+      font-size:1.6rem;
+      padding-left:2rem;
+      color:#666;
+      flex:1;
+      &::-webkit-input-placeholder{
+        color:#ccc;
+      }
+    }
+    button{
+      -webkit-appearance:none;
+      border:none;
+      height:5.2rem;
+      width:6rem;
+      color:#999;
+      font-size:1.6rem;
+      line-height:5rem;
+      background-color:#fff;
+    }
+  }
+}
+
+.mapBox-enter,.mapBox-leave-to{
+  transform:translate3d(200%,0,0);
+}
+.mapBox-enter-active,.mapBox-leave-active{
+  transition:transform 0.3s ease-in-out 0s;
+}
+.mapBox-leave,.mapBox-enter-to{
+  transform:translate3d(0,0,0);
+}

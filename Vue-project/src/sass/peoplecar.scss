@@ -1,0 +1,425 @@
+%flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin borderRadius($radius:2px) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+%sizing {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.peopleCarBox {
+  @extend %sizing;
+  width: 90%;
+  margin: 10px auto 0;
+  padding: 1rem 0;
+  @include borderRadius(4px);
+  border: 1px solid #e2e2e2;
+  border-top: 1px solid #f0f0f0;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .1);
+  @at-root .peopleCar-tel,.peopleCar-time {
+    @extend %flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    color: #666;
+    padding: 0 1.5rem 1rem;
+    em {
+      font-size: 1.6rem;
+      color: #fc9153;
+      width: 2.4rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    input {
+      @include borderRadius(3px);
+      border: 1px solid #e6e6e6;
+      height: 3rem;
+      flex: 1;
+      padding-left: 6px;
+      font-size: 1.4rem;
+      color: #666;
+      line-height: 3rem;
+      background-color: #fff;
+      -webkit-appearance: none;
+    }
+
+    .clearInp {
+      position: absolute;
+      height: 4rem;
+      width: 1.5rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      right: 4px;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: #ccc;
+      color: #fff;
+      @include borderRadius(50%);
+      text-align: center;
+      line-height: 1.6rem;
+      font-size: 1.2rem;
+    }
+  }
+  @at-root .peopleCar-time {
+    border-bottom: 1px solid #ececec;
+  }
+  @at-root .peopleCar-start ,.peopleCar-end {
+    @extend %flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1rem 0.5rem;
+    &:before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #3cbca3;
+      margin: 0 1rem 0 1rem;
+    }
+
+    input {
+      @include borderRadius(3px);
+      height: 3rem;
+      flex: 1;
+      padding-left: 6px;
+      font-size: 1.4rem;
+      color: #666;
+      line-height: 3rem;
+      border: none;
+      &::-webkit-input-placeholder {
+        color: #fc9153;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  @at-root .peopleCar-end {
+    &:before {
+      background-color: #fc9153;
+    }
+
+    input {
+      &::-webkit-input-placeholder {
+        color: #666;
+      }
+    }
+
+    border-bottom: 1px solid #ececec;
+  }
+  @at-root .peopleCar-more {
+    height: 4rem;
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    span {
+      color: #3cbca3;
+      font-size: 1.6rem;
+    }
+
+    em {
+      color: #3cbca3;
+      padding: 0 0.5rem;
+      font-size: 1.6rem;
+    }
+
+    .peopleCar-to {
+      padding-right: 10px;
+      color: #666;
+      font-size: 1.4rem;
+    }
+  }
+  @at-root .peopleCar-btn {
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding: 17px 16px;
+      margin-top: 1rem;
+      width: 92%;
+      color: #fff;
+      background-color: #4a4c5b;
+      border: none;
+      font-size: 1.6rem;
+      text-align: center;
+      @include borderRadius(2px)
+    }
+  }
+}
+
+.btnBox {
+  width: 3rem;
+  height: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.9rem;
+  background-color: #ccc;
+  transition: all 0.3s ease 0s;
+  &.current {
+    background-color: #3cbca3;
+    border: 1px solid #3cbca3;
+    transition: all .3s ease 0s;
+    &:before {
+      transform: translate(1.6rem);
+      transition: transform .3s ease-in-out 0s;
+    }
+  }
+  &:before {
+    content: '';
+    display: block;
+    background-color: #fff;
+    width: 1.4rem;
+    height: 1.4rem;
+    box-sizing: border-box;
+    @include borderRadius(0.8rem);
+    border: 1px solid transparent;
+    transform: translate(0);
+    transition: transform .3s ease-in-out 0s;
+  }
+}
+
+.black {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.peopleCar-price {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  @extend %flex;
+  justify-content: center;
+  align-items: center;
+  @at-root .peopleCar-priceTotal {
+    text-align: center;
+    padding: 0.4rem 1rem 0.6rem;
+    border-bottom: 1px solid #e2e2e2;
+    h6 {
+      font-size: 1.6rem;
+      line-height: 3rem;
+      color: #666;
+    }
+
+    ul {
+      @extend %flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        flex: 1;
+        color: #666;
+        em, span {
+          display: block;
+          width: 100%;
+          line-height: 2rem;
+          font-size: 1.4rem;
+        }
+        em {
+          color: #fc9153;
+        }
+      }
+    }
+  }
+  @at-root .peopleCar-priceBox {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #e2e2e2;
+    border-top: 1px solid #f0f0f0;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.4);
+    padding-bottom:1rem;
+  }
+  @at-root .peopleCar-priceInp {
+    border-bottom:1px solid #f0f0f0;
+    .peopleCar-people {
+      @extend %flex;
+      width: 90%;
+      height:4.2rem;
+      margin: 0 auto;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      span{
+        white-space:nowrap;
+        font-size:1.4rem;
+      }
+      input{
+        @include borderRadius(3px);
+        border:1px solid #e2e2e2;
+        height:3rem;
+        line-height:3rem;
+        padding-left:5px;
+        color:#666;
+        width:2rem;
+        flex:1;
+        -webkit-box-sizing:border-box;
+        box-sizing:border-box;
+        font-size:14px;
+        &::-webkit-input-placeholder{
+          font-size:14px;
+          color:#ccc;
+        }
+      }
+    }
+  }
+  @at-root .peopleCar-priceBtn{
+    text-align:center;
+    button{
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding: 17px 16px;
+      margin-top: 1rem;
+      width: 95%;
+      color: #fff;
+      background-color: #4a4c5b;
+      border: none;
+      font-size: 1.6rem;
+      text-align: center;
+      @include borderRadius(2px);
+    }
+  }
+}
+.price-enter{
+  transform:translate(100vw);
+}
+.price-leave-to{
+  transform:translate(-400px);
+}
+.price-enter-to,.price-leave{
+  transform:translate(0);
+}
+.price-enter-active,.price-leave-active{
+  transition:all .3s ease-in-out 0s;
+}
+.priceBox-enter,.priceBox-leave-to{
+  opacity:0;
+}
+.priceBox-enter-to,.priceBox-leave{
+  opacity:1;
+}
+.priceBox-leave-active{
+  transition:all 0.2s ease-in-out .1s;
+}
+.uploadImgBox{
+  width:100%;
+  position:relative;
+  padding:0.5rem 0;
+  border-top:1px solid #f0f0f0;
+  @at-root .imgFile{
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    input.uploadBtn{
+      width:100%;
+      height:calc(100vw/2.6);
+      opacity:0;
+      position:absolute;
+      z-index:888;
+    }
+    .uploadImg{
+      width:100%;
+      height:calc(100vw/2.6);
+      -webkit-border-radius:6px;
+      border-radius:6px;
+    }
+    .productBtn{
+      width:5rem;
+      height:2rem;
+      position:absolute;
+      z-index:999;
+      right:0.5rem;
+      bottom:0.5rem;
+      background-color:rgba(0,0,0,0.7);
+      color:#fff;
+      font-size:1.4rem;
+      line-height:2rem;
+      text-align:center;
+      @include borderRadius(4px);
+    }
+  }
+  @at-root.productList{
+    position:absolute;
+    width:80%;
+    height:calc(100vw/2.6);
+    right:10%;
+    bottom:calc(0.5rem + 2px);
+    background-color:rgba(0,0,0,.4);
+    @include borderRadius(6px);
+    margin:0 auto;
+    z-index:998;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    .productInfo{
+      width:90%;
+      height:90%;
+      font-size:1.4rem;
+      color:#fff;
+      outline:none;
+      -webkit-overflow-scrolling:touch;
+      overflow:scroll;
+    }
+  }
+}
+@keyframes showBox{
+  0%{
+    width:0;
+    height:0;
+    border-radius:50%;
+    right:10%;
+    bottom:calc(0.5rem + 2px);
+  }
+  6%{
+    width:6px;
+    height:6px;
+    border-radius:6px;
+    border-top-left-radius:50%;
+    border-bottom-left-radius:50%;
+  }
+  10%{
+    width:5%;
+    height:5%;
+    border-radius:6px;
+  }
+  50%{
+    width:25%;
+    height:25%;
+  }
+  70%{
+    width:35%;
+    height:35%;
+  }
+  90%{
+    width:50%;
+    height:50%;
+  }
+}
+.productList-enter-active{
+  animation:showBox .2s ease-in-out;
+  transform:translate3d(0,0,0);
+}
+.productList-leave-active{
+  animation:showBox .2s ease-in-out reverse;
+  transform:translate3d(0,0,0);
+}
+
+
+
+

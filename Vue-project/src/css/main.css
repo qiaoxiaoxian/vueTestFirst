@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/*
+*閮ㄥ垎閲嶇疆
+*/
+html { font-size: calc(3vw); color: #222; }
+
+dl, dd { margin: 0; padding: 0; }
+
+::selection { background-color: #b3d4fc; text-shadow: none; }
+
+ul { margin: 0; padding: 0; }
+
+li { list-style: none; }
+
+em, b { font-style: normal; }
+
+a { text-decoration: none; color: #222; -webkit-tap-highlight-color: transparent; -webkit-appearance: none; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0; }
+
+input[type='submit'], input[type='button'], input[type='reset'], button { -webkit-appearance: none; -webkit-tap-highlight-color: transparent; }
+
+button:focus, input:focus { outline: none; }
+
+/*
+*
+*鍗曠嫭鏍峰紡
+*
+**/
+.appContent-header, .appHeader-my, .appHeader-tap, .appList-box .appListTop { display: -webkit-flex; display: flex; }
+
+.appHeader-my, .appHeader-tap, .appList-box .appListTop { justify-content: center; align-items: center; }
+
+.peopleCar-tel .border-danger { border: 1px solid #fc9153; }
+
+.appContent-header { width: 100%; background-color: #fff; box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22); justify-content: left; align-items: center; }
+.appHeader-my { width: 3.5rem; padding-left: 0.5rem; color: #666; }
+.appHeader-my h6 { font-size: 1.7rem; color: #666; line-height: 4.8rem; }
+.appHeader-tap { flex: 1; }
+.appHeader-tap li { line-height: 4.8rem; width: 20%; text-align: center; font-size: 1.5rem; color: #666; padding: 0 4px; }
+.appHeader-tap li.current { color: #fc9153; -webkit-transform: scale(1.1); transform: scale(1.1); -webkit-transition: all 0.2s ease 0s; transition: all 0.2s ease 0s; }
+
+.appListBck, .appList-box { position: fixed; top: 0; left: 0; bottom: 0; height: calc(100vh); }
+
+.appListBck { z-index: 110; width: 100%; background-color: rgba(37, 38, 45, 0.4); }
+.appList-box { z-index: 111; width: 75%; height: 100%; background-color: #fff; box-shadow: 4px 0 18px 6px rgba(0, 0, 0, 0.12); }
+.appList-box .appListTop { height: 8rem; color: #666; }
+.appList-box .appListTop em { font-size: 2rem; padding-right: 4px; }
+.appList-box .appListTop span { font-size: 1.8rem; }
+.appList-box .appList-center { box-sizing: border-box; -webkit-box-sizing: border-box; padding: 0 16px; color: #666; }
+.appList-box .appList-center dd { height: 4.4rem; line-height: 4.4rem; }
+.appList-box .appList-center em { font-size: 2rem; padding-right: 6px; }
+.appList-box .appList-center span { font-size: 1.8rem; }
+.appList-box .appList-bottom { position: absolute; bottom: 0; left: 0; right: 0; display: flex; display: -webkit-flex; height: 6rem; justify-content: center; align-items: center; font-size: 2rem; color: #666; }
+.appList-box .appList-bottom em { padding-right: 10px; }
+
+.appList-enter { transform: translateX(-75%) translateZ(0); }
+
+.appList-leave-to { transform: translateX(-120%) translateZ(0); }
+
+.appList-enter-active, .appList-leave-to { transition: transform 0.3s ease-in-out 0s; }
+
+.appListBck-enter, .appListBck-leave-active { opacity: 0; }
+
+.appListBck-enter-to { opacity: 1; }
+
+.appListBck-enter-active, .appListBck-leave-active { transition: all 0.3s ease-in-out 0s; }
+
+.appContent-map { -webkit-box-sizing: border-box; box-sizing: border-box; position: fixed; left: 0; bottom: 0; right: 0; height: 100%; width: 100%; }
+.appContent-map .appContent-mapHead { position: relative; z-index: 100; width: 100%; height: 5rem; background-color: #fff; display: flex; display: -webkit-flex; justify-content: flex-start; -webkit-box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.12); box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.12); }
+.appContent-map .appContent-mapHead input { height: 100%; border: none; font-size: 1.6rem; padding-left: 2rem; color: #666; flex: 1; }
+.appContent-map .appContent-mapHead input::-webkit-input-placeholder { color: #ccc; }
+.appContent-map .appContent-mapHead button { -webkit-appearance: none; border: none; height: 5.2rem; width: 6rem; color: #999; font-size: 1.6rem; line-height: 5rem; background-color: #fff; }
+
+.mapBox-enter, .mapBox-leave-to { transform: translate3d(200%, 0, 0); }
+
+.mapBox-enter-active, .mapBox-leave-active { transition: transform 0.3s ease-in-out 0s; }
+
+.mapBox-leave, .mapBox-enter-to { transform: translate3d(0, 0, 0); }
+
+/*# sourceMappingURL=main.css.map */
